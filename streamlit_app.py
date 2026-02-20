@@ -10,10 +10,6 @@ conn = st.connection("snowflake")
 # Simplified query without extra arguments that might trigger TypeErrors
 df = conn.query("SELECT * FROM REVIEWS_C_SENTIMIENTO")
 
-# To verify it worked
-if df is not None:
-    st.dataframe(df.head())
-
 # App title and sidebar filters
 st.title("Product Intelligence Dashboard")
 products = df['PRODUCT'].unique()
