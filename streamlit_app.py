@@ -17,7 +17,7 @@ if df is not None:
 # App title and sidebar filters
 st.title("Product Intelligence Dashboard")
 products = df['PRODUCT'].unique()
-selected_products = st.multiselect("Select Products:", options=products, default=products)
+selected_product = st.sidebar.selectbox("Select a Product:", options=products)
 filtered_df = df[df['PRODUCT'].isin(selected_products)]
 
 # Data preview
