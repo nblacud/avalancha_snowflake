@@ -4,9 +4,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from snowflake.cortex import complete
 
-# Connect to Snowflake and load data
-session = get_active_session()
-df = session.table('reviews_c_sentimiento').to_pandas()
+# Replace get_active_session() with st.connection
+conn = st.connection("snowflake")
+
+# Now use conn.session() to load your data
+df = conn.query("SELECT * FROM REVIEWS_C_SENTIMIENTO", show_column_names=True)
 
 # App title and sidebar filters
 st.title("Product Intelligence Dashboard")
